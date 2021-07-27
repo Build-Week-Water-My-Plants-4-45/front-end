@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Signup from './Components/Signup';
+import Signup from './components/Signup';
 
 function App() {
   return (
