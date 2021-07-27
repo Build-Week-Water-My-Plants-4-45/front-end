@@ -16,6 +16,8 @@ export default function Plant(props) {
             <PlantImg img={dummyData.img} species={dummyData.species}/>
 
             <p>Be sure to water {dummyData.nickname} every: {dummyData.h2oFrequency} mins!</p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
     )
 }
