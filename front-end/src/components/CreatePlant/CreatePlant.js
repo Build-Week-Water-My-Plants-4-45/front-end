@@ -8,7 +8,8 @@ const initialPlant = {
     image: '',
 };
 
-export default function CreatePlant(props) {
+
+export const CreatePlant = (props) => {
     const [plant, setPlant ] = useState(initialPlant);
     const history = useHistory();
 
