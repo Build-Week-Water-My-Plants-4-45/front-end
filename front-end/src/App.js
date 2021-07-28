@@ -1,6 +1,9 @@
 import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
+import { Route, Switch } from 'react-router-dom';
+import Plant from './components/Plant';
+import { CreatePlant }  from './components/CreatePlant/CreatePlant';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -13,7 +16,22 @@ const AppContainer = styled.div`
 
 function App() {
   return <AppContainer>
-    <AccountBox />
+
+    <Switch>
+
+        <Route path='/create-plant'>
+          <CreatePlant />
+        </Route>
+
+        <Route path='/plant'>
+          <Plant />
+        </Route>
+
+        <Route path='/'>
+          <AccountBox />
+        </Route>
+
+      </Switch>
   </AppContainer>
    
   
