@@ -1,6 +1,7 @@
-import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/marginer";
+import { Route, Switch } from 'react-router-dom';
+import Signup from './components/Signup';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -14,9 +15,16 @@ const AppContainer = styled.div`
 function App() {
   return <AppContainer>
     <AccountBox />
-  </AppContainer>
-   
+    
+      <Switch>
+
+        <Route path='/sign-up'>
+          <Signup />
+        </Route>
   
+      </Switch>
+  
+  </AppContainer>
 }
 
 export default App;
