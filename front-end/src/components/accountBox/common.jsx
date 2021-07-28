@@ -28,6 +28,7 @@ export const BoldLink = styled.a`
     color: rgb(2,0,36);
     font-weight: 500;
     text-decoration: none;
+    margin: 0 4px;
 `;
 
 export const Input = styled.input`
@@ -44,7 +45,7 @@ export const Input = styled.input`
         color: rgba(200, 200, 200, 1);
     }
 
-    &::not(::last-of-type) {
+    &:not(:last-of-type) {
         border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
     }
 
