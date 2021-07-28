@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 const initialPlant = {
     nickname: '',
@@ -7,6 +7,7 @@ const initialPlant = {
     h2o_frequency: '',
     image: '',
 };
+
 
 export const CreatePlant = (props) => {
     const [plant, setPlant ] = useState(initialPlant);
@@ -37,7 +38,7 @@ export const CreatePlant = (props) => {
                     />
                 </label>
 
-                <lable>
+                <label>
                     H2o Frequency
                     <input 
                         type="text"
@@ -45,10 +46,10 @@ export const CreatePlant = (props) => {
                         value={plant.h2o_frequency}
                         onChange={handleChange}
                     />
-                </lable>
+                </label>
 
                 <label>
-                    Image
+                    Image URL:
                     <input 
                         type="text"
                         name="image"

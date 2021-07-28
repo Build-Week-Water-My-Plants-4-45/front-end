@@ -16,13 +16,13 @@ const AppContainer = styled.div`
 
 function App() {
   return <AppContainer>
-
-    <Switch>
+    
+      <Switch>
 
         <Route path='/create-plant'>
           <CreatePlant />
         </Route>
-
+          
         <Route path='/plant'>
           <Plant />
         </Route>
@@ -30,7 +30,6 @@ function App() {
         <Route path='/'>
           <AccountBox />
         </Route>
-
       </Switch>
   </AppContainer>
    
