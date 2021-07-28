@@ -4,6 +4,7 @@ import { AccountBox } from "./components/accountBox";
 import { Route, Switch } from 'react-router-dom';
 import Plant from './components/Plant';
 import { CreatePlant }  from './components/CreatePlant/CreatePlant';
+import User from './components/User';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -18,6 +19,9 @@ function App() {
   return <AppContainer>
     
       <Switch>
+        <Route path='/user'>
+          <User />
+        </Route>
 
         <Route path='/create-plant'>
           <CreatePlant />
