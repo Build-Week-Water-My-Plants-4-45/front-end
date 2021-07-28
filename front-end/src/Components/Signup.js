@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export default function Signup (props) {
     return (
-        <div class="signup-container">
+        <div className="signup-container">
             <h2>Signup</h2>
 
 
