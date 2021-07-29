@@ -1,10 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Plant from './Plant';
+import styled from "styled-components";
+
+const Card = styled.div`
+  text-align: center;
+  width: 90%;
+  margin: 3rem auto;
+  padding: 10px;
+  background-color: #b5651d;
+  color: #000;
+  transition: all 0.3s ease-in;
+  &:hover {
+    background-color: #666633;
+    color: #fff;
+  }
+`;
+const Button = styled.button`
+  border: none;
+  border-radius: 50%;
+  margin: 10px 10px 20px;
+  padding: 15px;
+  background-color: #fff;
+  transition: all 0.3s ease-in;
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+`;
+
 
 export default function User(props) {
     return (
-        <div>
+        <Card>
+          <div>
             {
                 !props.currentUser ? <h2>Loading...</h2> :
             
@@ -22,12 +51,14 @@ export default function User(props) {
                             ?
                             props.currentUser[0].plants.map((plant, index) => <Link to={`/plants/${plant.id}`}><Plant key={index} nickname={plant.nickname} species={plant.species} img={plant.img} h2oFrequency={plant.h2oFrequency}/></Link>)
                             :
-                            <button>Click here to add a Plant!</button>
+                            <Button>Click here to add a Plant!</Button>
                         } 
                     </div>
+
                 </div>
             </div>
             }
-        </div>
+          </div>
+        </Card>
     )
 }

@@ -7,6 +7,8 @@ import { CreatePlant }  from './components/CreatePlant/CreatePlant';
 import User from './components/User';
 import React, { useState, useEffect } from 'react';
 import { dummyData } from './components/userDummyData';
+import Nav from "./Nav"
+// import UserProfile from './components/UserProfile'
 
 const AppContainer = styled.div`
   width: 100%;
@@ -93,6 +95,7 @@ function App() {
 
   return <AppContainer>
     
+    <Nav />
       <Switch>
         <Route path='/user/:userId'>
           <User currentUser={currentUser}/>
@@ -109,7 +112,13 @@ function App() {
         <Route exact path='/'>
           <AccountBox loginFormValues={loginFormValues} updateLoginForm={updateLoginForm} fakeAuth={fakeAuth} signupFormValues={signupFormValues} updateSignupForm={updateSignupForm} submitSignupForm={submitSignupForm}/>
         </Route>
+
+        {/* <Route 
+        path="/profile" >
+        <UserProfile /> 
+        </Route> */}
       </Switch>
+
   </AppContainer>
    
   

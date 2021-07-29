@@ -8,7 +8,6 @@ const initialPlant = {
     image: '',
 };
 
-
 export const CreatePlant = (props) => {
     const [plant, setPlant ] = useState(initialPlant);
     const history = useHistory();
@@ -38,7 +37,7 @@ export const CreatePlant = (props) => {
                     />
                 </label>
 
-                <label>
+                <lable>
                     H2o Frequency
                     <input 
                         type="text"
@@ -46,10 +45,10 @@ export const CreatePlant = (props) => {
                         value={plant.h2o_frequency}
                         onChange={handleChange}
                     />
-                </label>
+                </lable>
 
                 <label>
-                    Image URL:
+                    Image
                     <input 
                         type="text"
                         name="image"
