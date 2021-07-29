@@ -5,6 +5,8 @@ import { Route, Switch } from 'react-router-dom';
 import Plant from './components/Plant';
 import { CreatePlant }  from './components/CreatePlant/CreatePlant';
 import User from './components/User';
+import Nav from "./Nav"
+// import UserProfile from './components/UserProfile'
 
 const AppContainer = styled.div`
   width: 100%;
@@ -18,6 +20,7 @@ const AppContainer = styled.div`
 function App() {
   return <AppContainer>
     
+    <Nav />
       <Switch>
         <Route path='/user'>
           <User />
@@ -34,7 +37,13 @@ function App() {
         <Route path='/'>
           <AccountBox />
         </Route>
+
+        {/* <Route 
+        path="/profile" >
+        <UserProfile /> 
+        </Route> */}
       </Switch>
+
   </AppContainer>
    
   
