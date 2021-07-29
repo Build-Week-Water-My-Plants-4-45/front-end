@@ -1,6 +1,4 @@
-export const dummyData = {
-    users: [
-        {
+export const dummyData = [{
         username: 'Jordan',
         password: 'password',
         phone: '999-444-1234',
@@ -38,4 +36,3 @@ export const dummyData = {
             plants: []
 
         }]
-}

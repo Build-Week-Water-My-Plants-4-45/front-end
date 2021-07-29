@@ -100,6 +100,7 @@ const expandingTransition = {
 export function AccountBox(props) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState("signin");
+  const { loginFormValues, updateLoginForm, fakeAuth } = props;
 
   const playExpandingAnimation = () => {
     setExpanded(true);
@@ -150,7 +151,7 @@ export function AccountBox(props) {
           )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <LoginForm />}
+          {active === "signin" && <LoginForm loginFormValues={loginFormValues} updateLoginForm={updateLoginForm} fakeAuth={fakeAuth}/>}
           {active === "signup" && <SignupForm />}
         </InnerContainer>
       </BoxContainer>
