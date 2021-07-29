@@ -22,10 +22,18 @@ const defaultLoginForm = {
   password: ''
 }
 
+const defaultSignupForm = {
+  username: '',
+  password: '',
+  confirmPassword: '',
+  phoneNumber: ''
+}
+
 function App() {
   const [users, setUsers] = useState(dummyData);
   const [currentUser, setCurrentUser] = useState(null);
   const [loginFormValues, setLoginForm] = useState(defaultLoginForm);
+  const [signupFormValues, setSignupForm] = useState(defaultSignupForm);
 
   const history = useHistory();
 
@@ -33,6 +41,29 @@ function App() {
     const {value, name} = event.target;
 
     setLoginForm({...loginFormValues, [name]: value})
+  }
+
+  function updateSignupForm(event) {
+    const {value, name} = event.target;
+
+    setSignupForm({...signupFormValues, [name]: value})
+  }
+
+  function submitSignupForm(){
+    if(signupFormValues.password === signupFormValues.confirmPassword) {
+      const newUser = {
+        username: signupFormValues.username,
+        password: signupFormValues.password,
+        phoneNumber: signupFormValues.phoneNumber,
+        id: 3,
+        plants: []
+      }
+
+      setUsers({...users, newUser})
+      setCurrentUser([newUser]);
+    } else {
+        alert('Passwords do not match.');
+    }
   }
 
   function fakeAuth() {
@@ -57,7 +88,6 @@ function App() {
   useEffect(() => {
     if(currentUser) {
       history.push(`/user/${currentUser[0].id}`)
-      console.log(currentUser)
     }
   },[currentUser])
 
@@ -77,7 +107,7 @@ function App() {
         </Route>
 
         <Route exact path='/'>
-          <AccountBox loginFormValues={loginFormValues} updateLoginForm={updateLoginForm} fakeAuth={fakeAuth}/>
+          <AccountBox loginFormValues={loginFormValues} updateLoginForm={updateLoginForm} fakeAuth={fakeAuth} signupFormValues={signupFormValues} updateSignupForm={updateSignupForm} submitSignupForm={submitSignupForm}/>
         </Route>
       </Switch>
   </AppContainer>
