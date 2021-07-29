@@ -1,7 +1,12 @@
 import PlantImg from './PlantImg';
+import { useRouteMatch, useParams, useLocation, useHistory } from 'react-router-dom';
 
 export default function Plant(props) {
      const { nickname, species, img, h2oFrequency} = props;
+     const { plantId } = useParams()
+     console.log(useHistory());
+     //console.log(useRouteMatch())
+
     // const dummyData= {
     //     nickname: 'Rose',
     //     species: 'Red Rose',
