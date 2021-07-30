@@ -1,5 +1,4 @@
 import PlantImg from './PlantImg';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
 
 export default function Plant(props) {
      const { nickname, species, img, h2oFrequency} = props;

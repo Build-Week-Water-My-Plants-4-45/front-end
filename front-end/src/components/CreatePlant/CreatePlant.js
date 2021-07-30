@@ -1,14 +1,5 @@
-import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
-//import { axiosWithAuth } from '../authorization/axiosWithAuth.js';
+import React from "react";
 import styled from "styled-components";
-
-const initialPlant = {
-    nickname: '',
-    species: '',
-    h2o_frequency: '',
-    image: '',
-};
 
 const Form = styled.form`
   display: flex;
@@ -46,59 +37,47 @@ const SubmitButton = styled.button`
 `
 
 export const CreatePlant = (props) => {
-    const [plant, setPlant ] = useState(initialPlant);
-    
-    const create = e => {
-        e.preventDefault();
-        // axiosWithAuth()
-        //   .post("dummydata", plant)
-        //   .then(res => props.history.push('/plants'))
-        //   .catch(err => console.log(err));
-      }
-
-    const handleChange = (e) => {
-        setPlant({
-            ...plant,
-            [e.target.name]: e.target.value,
-        })
-    }
+    const { createPlantFormValues, updateCreatePlantForm, submitCreatePlantForm } = props;
+    // console.log(submitCreatePlantForm);
+    // console.log(createPlantFormValues);
+    // console.log(updateCreatePlantForm);
 
     return (
-    <Form onSubmit={e => create(e)}>
+    <Form>
       <h2>Create your plant!</h2>
       <label>Name </label>
       <input
         type="text"
-        name="nickName"
-        value={plant.nickName}
-        onChange={handleChange}
+        name="nickname"
+        value={createPlantFormValues.nickname}
+        onChange={updateCreatePlantForm}
       />
 
       <label>Species </label>
       <input
         type="text"
         name="species"
-        value={plant.species}
-        onChange={handleChange}
+        value={createPlantFormValues.species}
+        onChange={updateCreatePlantForm}
       />
 
       <label>H20frequency </label>
       <input
-        type="number"
+        type="text"
         name="h2oFrequency"
-        value={plant.h2oFrequency}
-        onChange={handleChange}
+        value={createPlantFormValues.h2oFrequency}
+        onChange={updateCreatePlantForm}
       />
 
       <label>Image </label>
       <input
         type="text"
-        name="image"
-        value={plant.image}
-        onChange={handleChange}
+        name="img"
+        value={createPlantFormValues.image}
+        onChange={updateCreatePlantForm}
       />
 
-      <SubmitButton>Create Plant</SubmitButton>
+      <SubmitButton onClick={submitCreatePlantForm}>Create Plant</SubmitButton>
     </Form>
     )
 }

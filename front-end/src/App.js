@@ -46,11 +46,19 @@ const defaultSignupForm = {
   phoneNumber: ''
 }
 
+const defaultCreatePlantForm = {
+  nickname: '',
+  species: '',
+  h2oFrequency: '',
+  img: ''
+}
+
 function App() {
   const [users, setUsers] = useState(dummyData);
   const [currentUser, setCurrentUser] = useState(null);
   const [loginFormValues, setLoginForm] = useState(defaultLoginForm);
   const [signupFormValues, setSignupForm] = useState(defaultSignupForm);
+  const [createPlantFormValues, setCreatePlantForm] = useState(defaultCreatePlantForm);
 
   const history = useHistory();
 
@@ -64,6 +72,31 @@ function App() {
     const {value, name} = event.target;
 
     setSignupForm({...signupFormValues, [name]: value})
+  }
+
+  function updateCreatePlantForm(event) {
+    const {value, name} = event.target;
+
+    setCreatePlantForm({...createPlantFormValues, [name]: value})
+    console.log(createPlantFormValues);
+  }
+
+  function submitCreatePlantForm(e) {
+    console.log(currentUser);
+    e.preventDefault();
+    const plants = currentUser[0].plants;
+    const newPlant = {
+      nickname: createPlantFormValues.nickname,
+      species: createPlantFormValues.species,
+      h2oFrequency: createPlantFormValues.h2oFrequency,
+      img: createPlantFormValues.img,
+      id: 3
+    }
+    const currentUserCopy = {...currentUser}
+    currentUserCopy[0].plants = [...plants, newPlant]
+
+    setCurrentUser(currentUserCopy);
+    console.log(currentUser);
   }
 
   function submitSignupForm(){
@@ -118,16 +151,17 @@ function App() {
 
     {/* <Nav /> */}
       <Switch>
+
+        <Route path='/user/:userId/create-plant'>
+          <CreatePlant createPlantFormValues={createPlantFormValues} updateCreatePlantForm={updateCreatePlantForm} submitCreatePlantForm={submitCreatePlantForm}/>
+        </Route>
+
         <Route path='/user/:userId'>
           <User currentUser={currentUser}/>
         </Route>
 
         <Route path='/plant/:plantId'>
           <IndividualPlant />
-        </Route>
-
-        <Route path='/create-plant'>
-          <CreatePlant />
         </Route>
 
         <Route exact path='/'>
