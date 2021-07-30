@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Plant from './Plant';
-import IndividualPlant from "./IndividualPlant";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -41,7 +40,7 @@ export default function User(props) {
             <div>
                 <div className='user-header'>
                     <h2>{props.currentUser[0].username}</h2>
-                    <Link to='/create-plant'>Add a Plant</Link>
+                    <Link to={`/user/${props.currentUser[0].id}/create-plant`}>Add a Plant</Link>
                 </div>
 
                 <div>
