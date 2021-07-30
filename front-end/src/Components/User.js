@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Plant from './Plant';
+import IndividualPlant from "./IndividualPlant";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -49,7 +50,7 @@ export default function User(props) {
                         {
                             props.currentUser[0].plants.length > 1 
                             ?
-                            props.currentUser[0].plants.map((plant, index) => <Link to={`/plants/${plant.id}`}><Plant key={index} nickname={plant.nickname} species={plant.species} img={plant.img} h2oFrequency={plant.h2oFrequency}/></Link>)
+                            props.currentUser[0].plants.map((plant, index) => <Link to={{pathname: `/plant/${plant.id}`, state: {plant: plant}}}><Plant key={index} nickname={plant.nickname} species={plant.species} img={plant.img} h2oFrequency={plant.h2oFrequency}/></Link>)
                             :
                             <Button>Click here to add a Plant!</Button>
                         } 

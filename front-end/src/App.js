@@ -2,8 +2,8 @@ import './App.css';
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
 import { Route, Switch, useHistory } from 'react-router-dom';
-import Plant from './components/Plant';
 import { CreatePlant }  from './components/CreatePlant/CreatePlant';
+import IndividualPlant from "./components/IndividualPlant";
 import User from './components/User';
 import React, { useState, useEffect } from 'react';
 import { dummyData } from './components/userDummyData';
@@ -123,7 +123,7 @@ function App() {
         </Route>
 
         <Route path='/plant/:plantId'>
-          <Plant />
+          <IndividualPlant />
         </Route>
 
         <Route path='/create-plant'>

@@ -1,9 +1,9 @@
 import PlantImg from './PlantImg';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-export default function Plant(props) {
-     const { nickname, species, img, h2oFrequency} = props;
-
+export default function IndividualPlant() {
+    const location = useLocation();
+    const { nickname, species, h2oFrequency, img } = location.state.plant;
     return (
         <div className='plant-container'>
             <h2>{nickname}</h2>
