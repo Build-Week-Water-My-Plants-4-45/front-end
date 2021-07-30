@@ -82,8 +82,9 @@ function App() {
   }
 
   function submitCreatePlantForm(e) {
-    const plants = currentUser[0].plants;
+    console.log(currentUser);
     e.preventDefault();
+    const plants = currentUser[0].plants;
     const newPlant = {
       nickname: createPlantFormValues.nickname,
       species: createPlantFormValues.species,
@@ -95,6 +96,7 @@ function App() {
     currentUserCopy[0].plants = [...plants, newPlant]
 
     setCurrentUser(currentUserCopy);
+    console.log(currentUser);
   }
 
   function submitSignupForm(){

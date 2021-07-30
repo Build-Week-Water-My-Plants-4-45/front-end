@@ -38,7 +38,9 @@ const SubmitButton = styled.button`
 
 export const CreatePlant = (props) => {
     const { createPlantFormValues, updateCreatePlantForm, submitCreatePlantForm } = props;
-    console.log(submitCreatePlantForm);
+    // console.log(submitCreatePlantForm);
+    // console.log(createPlantFormValues);
+    // console.log(updateCreatePlantForm);
 
     return (
     <Form>

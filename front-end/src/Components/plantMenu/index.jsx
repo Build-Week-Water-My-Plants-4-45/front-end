@@ -6,6 +6,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { MenuToggle } from "./menuToggle";
 import { NavMenu } from "./navMenu";
+import { Link } from "react-router-dom";
 
 const PlantMenuContainer = styled.div`
   display: flex;
@@ -131,7 +132,7 @@ export function PlantMenu(props) {
             <IconContainer>
               <FontAwesomeIcon icon={faUserCircle} />
             </IconContainer>
-            LOGIN
+            <Link style={{color: 'black'}} to={`/`}>LOGIN</Link>
           </LoginButton>
           <LoginButton
             initial={false}
@@ -139,7 +140,7 @@ export function PlantMenu(props) {
             variants={commonVariants}
             transition={commonTransition}
           >
-            SIGN UP
+            <Link style={{color: 'black'}} to={`/`}>SIGN UP</Link>
           </LoginButton>
         </TopContainer>
         <ContentContainer>

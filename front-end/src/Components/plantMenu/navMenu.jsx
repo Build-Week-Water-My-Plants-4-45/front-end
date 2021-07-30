@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavMenuContainer = styled.div`
   width: 100%;
@@ -46,6 +47,8 @@ const variants = {
 };
 
 export function NavMenu({ isOpen }) {
+  const id = 1;
+  // Pass current user from state to get ID, and the function to setCurrentUser on click of logout (set to null).
   return (
     <NavMenuContainer>
       <NavList>
@@ -63,7 +66,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">Home</a>
+          <Link to={`/user/${id}`}>Home</Link>
         </NavLink>
         <NavLink
           initial={false}
@@ -79,7 +82,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">PLANTS</a>
+          <a href="https://en.wikipedia.org/wiki/Plant">PLANTS</a>
         </NavLink>
         <NavLink
           initial={false}
@@ -95,7 +98,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">CREATE MY PLANT!</a>
+          <Link to={`/user/${id}/create-plant`}>CREATE MY PLANT!</Link>
         </NavLink>
         <NavLink
           initial={false}
@@ -111,7 +114,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">ABOUT</a>
+          <Link to={`/user`}>About</Link>
         </NavLink>
         <NavLink
           initial={false}
@@ -127,7 +130,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">CONTACT</a>
+          <Link to={`/contact`}>CONTACT</Link>
         </NavLink>
         <NavLink
           initial={false}
@@ -143,7 +146,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">LOG OUT</a>
+          <Link to={`/`}>CONTACT</Link>
         </NavLink>
       </NavList>
     </NavMenuContainer>
