@@ -7,8 +7,9 @@ import { CreatePlant }  from './components/CreatePlant/CreatePlant';
 import User from './components/User';
 import React, { useState, useEffect } from 'react';
 import { dummyData } from './components/userDummyData';
-import Nav from "./Nav"
-// import UserProfile from './components/UserProfile'
+import { Navbar } from "./components/navbar"
+import  Contact  from './components/contact'
+
 
 const AppContainer = styled.div`
   width: 100%;
@@ -17,6 +18,20 @@ const AppContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgba(15, 15, 15, 1);
+  color: #fff;
+`;
+
+const InnerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+`;
+
+const SomeContent = styled.h2`
+  color: #fff;
 `;
 
 const defaultLoginForm = {
@@ -95,7 +110,13 @@ function App() {
 
   return <AppContainer>
     
-    <Nav />
+    <Navbar />
+      <InnerContainer>
+        <SomeContent>Plant Light!</SomeContent>
+      </InnerContainer>
+     
+
+    {/* <Nav /> */}
       <Switch>
         <Route path='/user/:userId'>
           <User currentUser={currentUser}/>
@@ -111,6 +132,10 @@ function App() {
 
         <Route exact path='/'>
           <AccountBox loginFormValues={loginFormValues} updateLoginForm={updateLoginForm} fakeAuth={fakeAuth} signupFormValues={signupFormValues} updateSignupForm={updateSignupForm} submitSignupForm={submitSignupForm}/>
+        </Route>
+
+        <Route path='/contact' >
+          <Contact />
         </Route>
 
         {/* <Route 
