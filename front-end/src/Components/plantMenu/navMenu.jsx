@@ -146,7 +146,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <Link to={`/`}>CONTACT</Link>
+          <Link to={`/`}>LOGOUT</Link>
         </NavLink>
       </NavList>
     </NavMenuContainer>
